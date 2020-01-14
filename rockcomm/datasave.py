@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from os import getcwd
+#from os import getcwd
 
 class Data():
     """
@@ -35,7 +35,7 @@ class Data():
         return
 
 
-
+"""
 class DataSaver():
     """
     Object allowing to save every data.
@@ -110,3 +110,4 @@ class DataSaver():
             else:
                 break
         return
+        """
