@@ -52,7 +52,7 @@ class ConnectionLayout(GridLayout):
 		self.subgrid.add_widget(self.ip)
 
 		self.subgrid.add_widget(Label(text="Port: "))
-		self.port = TextInput(multiline=False)
+		self.port = TextInput(multiline=False, text='1111')
 		self.subgrid.add_widget(self.port)
 
 		self.add_widget(self.subgrid)
@@ -66,6 +66,7 @@ class ConnectionLayout(GridLayout):
 		port=self.port.text
 		self.upper_grid.remove_widget(self.upper_grid.current)
 		self.upper_grid.s=DatasendSocket(ip,int(port))
+		accelerometer.server=self.upper_grid.s
 		self.upper_grid.current=InUseLayout(self.upper_grid)
 		self.upper_grid.add_widget(self.upper_grid.current)
 
@@ -84,11 +85,12 @@ class InUseLayout(GridLayout):
 
 		self.subgrid.add_widget(Label(text="Accelerometer"))
 
-		self.send_data= TextInput(multiline=False)
-		self.add_widget(self.send_data)
-		self.envoie=Button(text='envoyer')
-		self.envoie.bind(on_press=self.envoyer)
-		self.add_widget(self.envoie)
+
+
+		self.acc_activ_but = Button(text="OFF")
+		self.acc_state=False
+		self.acc_activ_but.bind(on_press=self.acc_activation)
+		self.subgrid.add_widget(self.acc_activ_but)
 
 
 		self.add_widget(self.subgrid)
@@ -113,6 +115,7 @@ class InUseLayout(GridLayout):
 			self.acc_state = True
 			accelerometer.running()
 			self.acc_activ_but.text= "ON"
+
 
 if __name__ == "__main__":
 	MyApp().run()
