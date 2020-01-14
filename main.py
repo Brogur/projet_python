@@ -14,7 +14,7 @@ from kivy.uix.button import Button
 from datasend_Socket.DataSender import DatasendSocket
 
 import Sensors.accelerometer as Accelerometer
-from rockcomm.datasave import Data
+#from rockcomm.datasave import Data
 
 accelerometer=Accelerometer.myAccelerometer()
 
@@ -105,7 +105,7 @@ class InUseLayout(GridLayout):
 		self.add_widget(self.connect)
 
 	def Trigerred(self, instance):
-		self.upper_grid.s.kill()
+		#self.upper_grid.s.kill()
 		self.upper_grid.remove_widget(self.upper_grid.current)
 		self.upper_grid.current=ConnectionLayout(self.upper_grid)
 		self.upper_grid.add_widget(self.upper_grid.current)
