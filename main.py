@@ -5,7 +5,6 @@ To Do:
 	-ask alexandre datasender to use?
 	-add popup when connection error and stay at connection layout
 '''
-
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
@@ -22,6 +21,10 @@ accelerometer=Accelerometer.myAccelerometer()
 
 
 class MyApp(App):
+
+	def  __init__(self):
+		super(MyApp,self).__init__()
+
 	def build(self):
 		return Window()
 
@@ -35,6 +38,7 @@ class Window(GridLayout):
 
 		
 class ConnectionLayout(GridLayout):
+
 	def __init__(self,upper_grid):
 		super(ConnectionLayout,self).__init__()
 		self.upper_grid=upper_grid
@@ -65,12 +69,13 @@ class ConnectionLayout(GridLayout):
 		ip=self.ip.text
 		port=self.port.text
 		self.upper_grid.remove_widget(self.upper_grid.current)
-		self.upper_grid.s=DatasendSocket(ip,int(port))
-		accelerometer.server=self.upper_grid.s
+		#self.upper_grid.s=DatasendSocket(ip,int(port))
+		#accelerometer.server=self.upper_grid.s
 		self.upper_grid.current=InUseLayout(self.upper_grid)
 		self.upper_grid.add_widget(self.upper_grid.current)
 
 class InUseLayout(GridLayout):
+
 	def __init__(self,upper_grid):
 		self.upper_grid=upper_grid
 		super(InUseLayout,self).__init__()
