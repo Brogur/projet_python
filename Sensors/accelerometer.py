@@ -1,7 +1,7 @@
 from plyer import accelerometer
 from kivy.clock import Clock
 
-#from rockcomm.datasave import Data
+from rockcomm.datasave import Data
 
 class myAccelerometer():
 	"""
@@ -34,7 +34,8 @@ class myAccelerometer():
 		'''
 		#data=Data('acceleration',accelerometer.acceleration)
 		if self.server != None:
-			#self.server.sendData(data)
+
+			self.server.sendData(data)
 
 	def kill(self):
 		'''

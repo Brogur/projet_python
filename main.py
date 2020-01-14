@@ -11,7 +11,7 @@ from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 
-#from datasend_Socket.DataSender import DatasendSocket
+from datasend_Socket.DataSender import DatasendSocket
 
 import Sensors.accelerometer as Accelerometer
 
@@ -64,8 +64,8 @@ class ConnectionLayout(GridLayout):
 	def Trigerred(self, instance):
 		ip=self.ip.text
 		port=self.port.text
-		#self.upper_grid.s=DatasendSocket(ip,int(port))
-		#accelerometer.server=self.upper_grid.s
+		self.upper_grid.s=DatasendSocket(ip,int(port))
+		accelerometer.server=self.upper_grid.s
 		self.upper_grid.remove_widget(self.upper_grid.current)
 		self.upper_grid.current=InUseLayout(self.upper_grid)
 		self.upper_grid.add_widget(self.upper_grid.current)
