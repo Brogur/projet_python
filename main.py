@@ -11,9 +11,9 @@ from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 
-from datasend_Socket.DataSender import DatasendSocket
+from mod.DataSender import DatasendSocket
 
-import Sensors.accelerometer as Accelerometer
+import mod.accelerometer as Accelerometer
 
 accelerometer=Accelerometer.myAccelerometer()
 
