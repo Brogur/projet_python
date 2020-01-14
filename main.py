@@ -90,11 +90,6 @@ class InUseLayout(GridLayout):
 		self.envoie.bind(on_press=self.envoyer)
 		self.add_widget(self.envoie)
 
-		self.acc_activ_but = Button(text="OFF")
-		self.acc_state=False
-		self.acc_activ_but.bind(on_press=self.acc_activation)
-		self.subgrid.add_widget(self.acc_activ_but)
-
 
 		self.add_widget(self.subgrid)
 
@@ -119,9 +114,5 @@ class InUseLayout(GridLayout):
 			accelerometer.running()
 			self.acc_activ_but.text= "ON"
 
-	def envoyer(self,instance):
-		data=Data('acc',self.send_data.text)
-		self.upper_grid.s.sendData(data)
-		
 if __name__ == "__main__":
 	MyApp().run()
